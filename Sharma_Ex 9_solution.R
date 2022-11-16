@@ -7,6 +7,7 @@
 
 #using read.csv2() function to read the file. My computer doesnot follow US keyboard
 #it use comma as a decimal instead of dot in excel.
+
 createdfile <- read.csv2(file="createdfile.csv", header = TRUE)
 getwd()
 setwd("/Users/pujasharma/Documents/Phd_data/Exercise09")
@@ -17,8 +18,9 @@ ggplot(data=createdfile, aes(x=Temperature...F., y=WaterUse..l.day.))+
 geom_point()+
   ylab("Tree Water Use (l/day)")+
   xlab("Temperature(°F)")+
-  geom_smooth()
-
+  geom_smooth(method="lm")
+#..in Temperature and water use is because of some symbol I used like bracket 
+#and degree for temperature.
 
 
 #2 Given the data in “data.txt”. Write a script that generates two figures that
@@ -41,15 +43,20 @@ geom_point()+
 #While, north population observation is in small range between 12 and 18.
 #South region population has observation in two patches between 4-7 and 20-30.
 
-#Thus, the standar error is high in east, south and west region and low in north one
+#Thus, the standard error is high in east, south and west region and low in north one
 #(the one where data is not deviated from mean)
 data <- read.csv(file = "data.txt", header = TRUE, sep = ",")
 #Bar
 ggplot(data=data, aes(x=region, y=observations))+
   stat_summary(geom="bar", fun.y="mean") +
   stat_summary(geom="errorbar", fun.data = "mean_se", width=0.3) +
-  theme_bw()
-ggplot(data=data, aes(x=region, y=observations))+
-geom_jitter()
+  ylab("Means of the Four Population ")+
+  xlab("Region")+
+  theme_bw()+
+  theme(legend.title=element_blank())
+  
+ggplot(data=data, aes(x=region, y=observations, color=region))+
+geom_jitter()+
+  theme(legend.title=element_blank())
 
 
