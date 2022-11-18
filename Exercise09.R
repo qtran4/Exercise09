@@ -11,7 +11,7 @@ ggplot(data = data_1,
 #barplot of the means of the four populations
 data_2 <- read.table("data.txt",header = TRUE,sep = ",")
 ggplot(data_2, aes(x = region, y = observations)) +
-  stat_summary(fun.y = mean,
+      stat_summary(fun.y = mean,
                geom = "bar")
 #scatter plot of all of the observations
 ggplot(data = data_2,
