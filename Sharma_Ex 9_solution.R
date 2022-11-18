@@ -33,13 +33,14 @@ geom_point()+
 #different stories? Why?
 
 #read the file "data.txt".
-#barplot shows the mean observation of each four population with standard error. 
+#barplot shows the mean observation of each four population with standard error
+#bar. 
 #The observation on north population seems not deviated, with low standard error bar.
 #While, the data in east,south and west population is highly deviated from mean,
 #with high standard error bar.
 
 #Scatter plot shows the true observation of each point. We can see the data in 
-#east and west population is highly deviate in range between 0 and 30 observation.
+#east and west population is highly deviated in range between 0 and 30 observation.
 #While, north population observation is in small range between 12 and 18.
 #South region population has observation in two patches between 4-7 and 20-30.
 
